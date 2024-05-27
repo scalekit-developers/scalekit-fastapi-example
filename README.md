@@ -41,7 +41,7 @@ SCALEKIT_CLIENT_SECRET = client_secret
 
 ```sh
 # Run the development server:
-fastapi dev main.py
+python3 main.py
 ```
 
 ```sh
