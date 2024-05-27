@@ -33,6 +33,11 @@ pip install -r requirements
 ```
 
 ```sh
+# Run following command to create .env file
+add cp .env.example .env
+```
+
+```sh
 # Update .env file with env_url, client_id and client_secret fetched from the Scalekit dashboard as below
 SCALEKIT_ENV_URL = env_url
 SCALEKIT_CLIENT_ID = client_id
@@ -45,7 +50,7 @@ python3 main.py
 ```
 
 ```sh
-Open http://localhost:8080 with your preferred browser to see spawned webpage.
+Open http://localhost:8080 with your preferred browser
 ```
 
 ## API Reference

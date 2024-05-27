@@ -2,16 +2,16 @@ import os
 from typing import Optional, Annotated
 
 import uvicorn
+from dotenv import load_dotenv
 from faker import Faker
 from fastapi import FastAPI, Cookie
 from fastapi.responses import RedirectResponse
 from fastapi.staticfiles import StaticFiles
+from options.scalekit import AuthorizationUrlOptions, CodeAuthenticationOptions
 from pydantic import BaseModel
-from starlette.responses import JSONResponse
 from scalekit import Scalekit
 from starlette.exceptions import HTTPException
-from options.scalekit import AuthorizationUrlOptions, CodeAuthenticationOptions
-from dotenv import load_dotenv
+from starlette.responses import JSONResponse
 
 load_dotenv()
 
@@ -27,7 +27,7 @@ scale = Scalekit(url, client_id, client_secret)
 users = {}
 
 
-class SPAStaticFiles(StaticFiles):
+class WebFiles(StaticFiles):
     async def get_response(self, path: str, scope):
         try:
             response = await super().get_response(path, scope)
@@ -46,7 +46,7 @@ class Login(BaseModel):
 
 
 @app.get("/auth/me")
-def read_root(uid: Annotated[str | None, Cookie()] = None):
+def auth_me(uid: Annotated[str | None, Cookie()] = None):
     if not uid:
         return JSONResponse(status_code=401, content={"message": "User data not found"})
     user = users[uid]
@@ -56,7 +56,7 @@ def read_root(uid: Annotated[str | None, Cookie()] = None):
 
 
 @app.post("/auth/login")
-async def user_login(login: Login):
+async def auth_login(login: Login):
     options = AuthorizationUrlOptions()
     options.connection_id = login.connectionId
     options.organization_id = login.organizationId
@@ -68,7 +68,7 @@ async def user_login(login: Login):
 
 
 @app.get("/auth/callback")
-async def callback(code: str | None = None, error_description: str | None = None):
+async def auth_callback(code: str | None = None, error_description: str | None = None):
     if error_description:
         return JSONResponse(status_code=400, content=error_description)
     options = CodeAuthenticationOptions()
@@ -84,13 +84,13 @@ async def callback(code: str | None = None, error_description: str | None = None
 
 
 @app.post("/auth/logout")
-async def logout():
+async def auth_logout():
     response = JSONResponse(status_code=200, content='')
     response.delete_cookie(key='uid', httponly=False)
     return response
 
 
-app.mount("/", SPAStaticFiles(directory="web/build", html=True), name="web/build")
+app.mount("/", WebFiles(directory="web/build", html=True), name="web/build")
 
 
 if __name__ == "__main__":
