@@ -9,7 +9,7 @@ from fastapi.responses import RedirectResponse
 from fastapi.staticfiles import StaticFiles
 from options.scalekit import AuthorizationUrlOptions, CodeAuthenticationOptions
 from pydantic import BaseModel
-from scalekit import Scalekit
+from scalekit_client import Scalekit
 from starlette.exceptions import HTTPException
 from starlette.responses import JSONResponse
 
