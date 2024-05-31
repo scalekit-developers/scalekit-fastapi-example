@@ -7,9 +7,9 @@ from faker import Faker
 from fastapi import FastAPI, Cookie
 from fastapi.responses import RedirectResponse
 from fastapi.staticfiles import StaticFiles
-from options.scalekit import AuthorizationUrlOptions, CodeAuthenticationOptions
 from pydantic import BaseModel
-from scalekit_client import Scalekit
+from scalekit import ScalekitClient
+from scalekit import AuthorizationUrlOptions, CodeAuthenticationOptions
 from starlette.exceptions import HTTPException
 from starlette.responses import JSONResponse
 
@@ -23,7 +23,7 @@ client_secret = os.environ['SCALEKIT_CLIENT_SECRET']
 redirect_uri = os.environ['AUTH_REDIRECT_URI']
 host = os.environ['HOST']
 
-scale = Scalekit(url, client_id, client_secret)
+scale = ScalekitClient(url, client_id, client_secret)
 users = {}
 
 
