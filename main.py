@@ -1,9 +1,10 @@
 import os
 from typing import Optional, Annotated
 
+import string
+import random
 import uvicorn
 from dotenv import load_dotenv
-from faker import Faker
 from fastapi import FastAPI, Cookie
 from fastapi.responses import RedirectResponse
 from fastapi.staticfiles import StaticFiles
@@ -61,20 +62,18 @@ async def auth_login(login: Login):
     options.connection_id = login.connectionId
     options.organization_id = login.organizationId
     options.login_hint = login.email
-    options.state = ''.join(Faker().text().replace(' ', '').strip()[:15]).lower()
+    options.state = ''.join(random.choices(string.ascii_letters, k=15)).lower()
 
     auth_url = scale.get_authorization_url(redirect_uri=redirect_uri, options=options)
     return {'url': auth_url}
 
 
 @app.get("/auth/callback")
-async def auth_callback(code: str | None = None, error_description: str | None = None):
+async def auth_callback(code, error_description: Optional[str] = None):
     if error_description:
         return JSONResponse(status_code=400, content=error_description)
     options = CodeAuthenticationOptions()
-    options.code = code
-    options.redirect_uri = redirect_uri
-    result = scale.authenticate_with_code(options=options)
+    result = scale.authenticate_with_code(code, redirect_uri, options=options)
     user = result['user']
     uid = user['id']
     users[uid] = user
