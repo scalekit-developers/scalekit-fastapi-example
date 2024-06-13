@@ -7,7 +7,7 @@
   <br/>
 </p>
 <h1 align="left">
-  Scalekit FastAPI Example App
+  FastAPI Example App
 </h1>
 
 <a href="https://scalekit.com" target="_blank" rel="noopener noreferrer">Scalekit</a> is an Enterprise Authentication Platform purpose built for B2B applications. This Go SDK helps implement Enterprise Capabilities like Single Sign-on via SAML or OIDC in your Golang applications within a few hours.
@@ -17,7 +17,7 @@
 </div>
 <hr />
 
-## Getting Started
+## Pre-requisites
 
 1. [Sign up](https://scalekit.com) for a Scalekit account.
 2. Get your ```env_url```, ```client_id``` and ```client_secret``` from the Scalekit dashboard.
