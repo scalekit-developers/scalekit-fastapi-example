@@ -1,4 +1,4 @@
-<p align="center">
+<p align="left">
   <a href="https://scalekit.com" target="_blank" rel="noopener noreferrer">
     <picture>
       <img src="https://cdn.scalekit.cloud/v1/scalekit-logo-dark.svg" height="64">
@@ -6,15 +6,16 @@
   </a>
   <br/>
 </p>
-<h1 align="center">
+<h1 align="left">
   Scalekit FastAPI Example App
 </h1>
 
-<h4 align="center">
-Scalekit helps you ship Enterprise Auth in days.
+<a href="https://scalekit.com" target="_blank" rel="noopener noreferrer">Scalekit</a> is an Enterprise Authentication Platform purpose built for B2B applications. This Go SDK helps implement Enterprise Capabilities like Single Sign-on via SAML or OIDC in your Golang applications within a few hours.
 
-This FastAPI Sample App showcases the Scalekit Official Python SDK implementation.
-</h4>
+<div>
+📚 <a target="_blank" href="https://docs.scalekit.com">Documentation</a> - 🚀 <a target="_blank" href="https://docs.scalekit.com">Quick-start Guide</a> - 💻 <a target="_blank" href="https://docs.scalekit.com/apis">API Reference</a>
+</div>
+<hr />
 
 ## Getting Started
 
@@ -34,7 +35,7 @@ pip install -r requirements
 
 ```sh
 # Run following command to create .env file
-add cp .env.example .env
+cp .env.example .env
 ```
 
 ```sh
