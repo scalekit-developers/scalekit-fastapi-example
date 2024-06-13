@@ -24,7 +24,7 @@ client_secret = os.environ['SCALEKIT_CLIENT_SECRET']
 redirect_uri = os.environ['AUTH_REDIRECT_URI']
 host = os.environ['HOST']
 
-scale = ScalekitClient(url, client_id, client_secret)
+sc = ScalekitClient(url, client_id, client_secret)
 users = {}
 
 
@@ -64,7 +64,7 @@ async def auth_login(login: Login):
     options.login_hint = login.email
     options.state = ''.join(random.choices(string.ascii_letters, k=15)).lower()
 
-    auth_url = scale.get_authorization_url(redirect_uri=redirect_uri, options=options)
+    auth_url = sc.get_authorization_url(redirect_uri=redirect_uri, options=options)
     return {'url': auth_url}
 
 
@@ -73,7 +73,7 @@ async def auth_callback(code, error_description: Optional[str] = None):
     if error_description:
         return JSONResponse(status_code=400, content=error_description)
     options = CodeAuthenticationOptions()
-    result = scale.authenticate_with_code(code, redirect_uri, options=options)
+    result = sc.authenticate_with_code(code, redirect_uri, options=options)
     user = result['user']
     uid = user['id']
     users[uid] = user
