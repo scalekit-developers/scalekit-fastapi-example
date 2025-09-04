@@ -24,7 +24,7 @@ This FastAPI Sample App showcases the Scalekit Official Python SDK implementatio
 ## How to Run
 ```sh
 # Add ReactJS submodule for frontend elements 
-git clone --recursive https://github.com/scalekit-inc/scalekit-fastapi-example.git
+git clone --recursive https://github.com/scalekit-developers/shared-ui-for-examples.git
 ```
 
 ```sh
