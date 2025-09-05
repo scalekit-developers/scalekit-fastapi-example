@@ -17,17 +17,17 @@
 <h4 align="center">
 Scalekit is the <strong>auth stack for AI apps</strong> - from human authentication to agent authorization.
 
-This FastAPI example demonstrates how to implement both traditional B2B authentication (SSO, passwordless) and cutting-edge agentic workflows using Scalekit's Python SDK.
+This FastAPI example demonstrates how to implement enterprise authentication flows using Scalekit's Python SDK with modern async web framework patterns.
 </h4>
 
-## 🤖 What This Demo Shows
+## 🚀 What This Demo Shows
 
-- **Agent-First Authentication**: MCP integration with delegated consent
-- **Human SSO Integration**: Enterprise SAML/OIDC authentication flows
-- **Token Vault**: Secure per-user, per-tool token management
-- **Passwordless Auth**: Modern authentication without passwords
-- **Fast API Performance**: High-performance async Python framework
-- **Session Management**: Secure user state handling
+- **Enterprise SSO Integration**: SAML/OIDC authentication flows using Scalekit
+- **FastAPI Performance**: High-performance async Python web framework
+- **Session Management**: Secure user authentication and cookies
+- **OAuth 2.0 Flows**: Authorization code flow with callback handling
+- **User Profile Management**: Authenticated user data access
+- **Clean API Design**: RESTful endpoints for authentication workflows
 
 ## Getting Started
 
