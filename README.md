@@ -10,11 +10,24 @@
   Scalekit FastAPI Example App
 </h1>
 
-<h4 align="center">
-Scalekit helps you ship Enterprise Auth in days.
+[![FastAPI](https://img.shields.io/badge/FastAPI-0.68+-green?style=flat-square&logo=fastapi)](https://fastapi.tiangolo.com/)
+[![Python](https://img.shields.io/badge/Python-3.8+-blue?style=flat-square&logo=python)](https://www.python.org/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-This FastAPI Sample App showcases the Scalekit Official Python SDK implementation.
+<h4 align="center">
+Scalekit is the <strong>auth stack for AI apps</strong> - from human authentication to agent authorization.
+
+This FastAPI example demonstrates how to implement enterprise authentication flows using Scalekit's Python SDK with modern async web framework patterns.
 </h4>
+
+## 🚀 What This Demo Shows
+
+- **Enterprise SSO Integration**: SAML/OIDC authentication flows using Scalekit
+- **FastAPI Performance**: High-performance async Python web framework
+- **Session Management**: Secure user authentication and cookies
+- **OAuth 2.0 Flows**: Authorization code flow with callback handling
+- **User Profile Management**: Authenticated user data access
+- **Clean API Design**: RESTful endpoints for authentication workflows
 
 ## Getting Started
 
