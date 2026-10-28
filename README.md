@@ -15,7 +15,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 <h4 align="center">
-Scalekit provides auth and actions on behalf of users, with 500+ connectors and 20,000+ tools.
+Scalekit provides auth and actions on behalf of users, with 600+ connectors and 35,000+ tools.
 
 This FastAPI example demonstrates how to implement enterprise authentication flows using Scalekit's Python SDK with modern async web framework patterns.
 </h4>
